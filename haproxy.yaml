@@ -7,9 +7,9 @@ data:
         module: [ MIT ]
     dependencies:
         buildrequires:
-            bootstrap: master
+            base-runtime: master
         requires:
-            bootstrap: master
+            base-runtime: master
     references:
         community: https://fedoraproject.org/wiki/Modularity
         documentation: https://fedoraproject.org/wiki/Fedora_Packaging_Guidelines_for_Modules
@@ -25,5 +25,5 @@ data:
         rpms:
             haproxy:
                 rationale: A dependency of tangerine.
-                ref: f25
+                ref: master
                 buildorder: 10
