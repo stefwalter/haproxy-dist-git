@@ -1,3 +1,3 @@
 
 test:
-	cd tests; make
+	cd tests; make all
