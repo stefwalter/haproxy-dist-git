@@ -1,0 +1,7 @@
+---
+- name: Enable the test subject repo
+  shell: yum config-manager --add-repo "{{ subjects }}"
+
+- name: Install the RPMs from that repo
+  package: name={{item}} state=latest
+  with_items: "{{ packages }}"

@@ -1,8 +1,4 @@
-MODULE_LINT=/usr/share/moduleframework/tools/modulelint.py
-CMD=python -m avocado run --filter-by-tags=-WIP $(MODULE_LINT) *.py
-
-#
 check:
-	$(CMD)
+	sudo ansible-playbook test_local.yml
 
 all: check

@@ -1,0 +1,19 @@
+---
+- name: Install the avocado requirements
+  package: name={{item}} state=latest
+  with_items:
+  - python2-avocado
+
+- name: Make artifacts directory
+  file: path={{ artifacts }} state=directory owner=root mode=755 recurse=yes
+
+- block:
+  - name: Execute the avocado test
+    shell: exec 2>>{{artifacts}}/test.log 1>>{{artifacts}}/test.log; MODULE=rpm python -m avocado run --job-results-dir {{artifacts}}/ {{tests|join(' ') }}
+
+- always:
+  - name: Pull out the logs
+    fetch:
+      dest: "{{artifacts}}/"
+      src: "{{artifacts}}/"
+      flat: yes

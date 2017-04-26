@@ -1,0 +1,13 @@
+---
+- hosts: localhost
+  vars:
+    artifacts: ./artifacts
+  vars_prompt:
+  - name: subjects
+    prompt: "Repo test subject"
+    private: no
+
+  roles:
+  - { role: repo, packages: [ haproxy ] }
+
+- include: "test_local.yml"

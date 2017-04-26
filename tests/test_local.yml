@@ -1,0 +1,5 @@
+---
+# This first play always runs on the local staging system
+- hosts: localhost
+  roles:
+  - { role: avocado, tests: [ /usr/share/moduleframework/tools/modulelint.py, simpleTest.py ] }
